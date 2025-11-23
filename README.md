@@ -1,8 +1,8 @@
 # 100 Days of Python
 
-This repository contains my progress through the 100 Days of Python course at Udemy.
-Every day I complete a small project or exercise to improve my Python skills.
-The goal of this challenge is to build consistency, learn new concepts, and develop real coding habits.
+This repository contains my progress through the 100 Days of Python course at Udemy.<br>
+Every day I complete a small project or exercise to improve my Python skills.<br> 
+The goal of this challenge is to build consistency, learn new concepts, and develop real coding habits.<br>
 
 | Day | Project Name | Topics Covered |
 |-----|---------------|----------------|

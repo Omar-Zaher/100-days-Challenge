@@ -1,6 +1,7 @@
 # ============= importing modules =========================
 
 import random
+import logos
 
 # =========================================================
 
@@ -16,43 +17,11 @@ users_choice = input("1- Rock\n2- Paper\n3- Scissors\nWhat is Your choice: ")
 
 # ****** Visulizing Choices by ASCII art ***********
 
-Rock = """
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
+Rock = logos.Rock
+Paper = logos.Paper
+Scissors = logos.Scissors
 
-
-"""
-
-
-Paper = """
-     _______
----'    ____)____
-           ______)
-          _______)
-         _______)
----.__________)
-
-"""
-
-
-
-Scissors = """
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-
-"""
-
-
-
-
+# ============= Visualizing Choices ========================
 if users_choice == "1":
     print(f"Your Choice:\n {Rock}" )
 
@@ -86,12 +55,12 @@ elif Computer_choice == "scissors":
 # ================ Winning or lossing ============================
 
 if users_choice == "1" and Computer_choice == "scissors" or users_choice == "2" and Computer_choice == "rock" or users_choice == "3" and Computer_choice == "paper":
-    print ("Congrats You Won!")
+    print (logos.win)
     
 elif users_choice == "1" and Computer_choice == "paper" or users_choice == "2" and Computer_choice == "scissors" or users_choice == "3" and Computer_choice == "rock":
-    print ("You Lost:(")
+    print (logos.lose)
 
 else:
-    print ("Wow! it's a tie")
+    print (logos.draw)
     
 # =========================================================

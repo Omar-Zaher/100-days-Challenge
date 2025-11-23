@@ -1,94 +1,26 @@
 # ========= Importing ===========
 
 import random
-from logos import hangman
+import logos
 
 # ==================================
 
-hangman()
+logos.hangman()
 
 print ("Welcome to Hangman!")
-
-# ============== Generating a random word =================
-# 1- Create a lists
-Easy =["apple", "house", "chair", "table", "bread",
-    "green", "smile", "water", "light", "dance"]
-
-Medium = ["blanket", "journey", "thunder", "monster", "picture",
-    "freedom", "lantern", "crystal", "fortune", "kingdom"]
-
-Hard = ["avalanche", "whispering", "labyrinth", "crocodile", "silhouette",
-    "astronaut", "chandelier", "nightmare", "whirlwind", "camouflage"]
-
-HANGMANPICS = ['''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''']
-
-
-
-
-
 
 # 2- Make computer choose one
 level = input("Choose Level:\nA:Easy\nB:Medium\nC:Hard\nPlease write your choice (A,B,C): ").lower()
 word = ""
 
 if level == "a":
-    word = random.choice(Easy)
+    word = random.choice(logos.Easy)
     
 elif level == "b":
-    word = random.choice(Medium)    
+    word = random.choice(logos.Medium)    
     
 elif level == "c":
-    word = random.choice(Hard) 
+    word = random.choice(logos.Hard) 
     
 else:
     print ("Error! No letter found!")  
@@ -112,7 +44,7 @@ while gameover == False:
     blank = False
 # 1- Ask player for letter
 
-    letter = input("Choose your letter: ").lower()
+    letter = input("Choose your letter: ").lower()[0]
     if letter not in letters_chosen: 
     # 2- is letter in the word
         letters_chosen.append(letter)
@@ -128,17 +60,17 @@ while gameover == False:
                     
                         
                 if blank == False:
-                    print (f"You Won! The word was {word} 🥳")
+                    print (f"{logos.win}\n The word was {word} 🥳")
                     gameover = True       
                 print (f"Your answer {blanks}")
             
     #  4- If no, draw hangman(need to create a list for drawings) 
         if letter_found == False and lives < 6:
-            print (HANGMANPICS[lives])
+            print (logos.HANGMANPICS[lives])
             lives += 1
         elif lives >= 6: 
-            print (HANGMANPICS[lives])
-            print (f"Gameover You Lost 😭 \nThe word was {word} \nYour final Answer was: {blanks}")
+            print (logos.HANGMANPICS[lives])
+            print (f"{logos.lose} \nThe word was {word} \nYour final Answer was: {blanks}")
             gameover = True   
     else:
         print ("You chose this letter before, Please choose another one")       

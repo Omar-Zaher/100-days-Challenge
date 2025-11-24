@@ -20,3 +20,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 12 | Guess the number | Scope, local and global scope, global constants|
 | 13 | No project | Debugging, Python debugger|
 | 14 | Higher Lower | Revision|
+| 15 | Coffee Machine | Dictionaries, Nested Dictionaries, Functions, While Loops, Error Handling, ASCII UI, Resource Management

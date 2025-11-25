@@ -32,17 +32,19 @@ while True:
 
     # ------------ Process Order ------------
     if user_choice == 1:
-        drink = MenuItem(name="latte", water=200, milk=150, coffee=24, cost=2.5)    
+        drink = menu.find_drink(items[0])   # Latte
     elif user_choice == 2:
-        drink = MenuItem(name="espresso", water=50, milk=0, coffee=18, cost=1.5) 
+        drink = menu.find_drink(items[1])   # Cappuccino 
     else:
-        drink = MenuItem(name="cappuccino", water=250, milk=50, coffee=24, cost=3)    
+        drink = menu.find_drink(items[2])   # Espresso   
               
     # ------------ Check Resources & Make Coffee ------------
     if maker.is_resource_sufficient(drink):
         maker.make_coffee(drink)
         print(f"That will be ${drink.cost}")
         money.make_payment(drink.cost)
+    
+    # ------------ Another Order? ------------
         while True: 
             more = input("Would you like to order something else: ").lower()
             if more == "yes":
@@ -58,4 +60,4 @@ while True:
             break
     else:
         break
-        
+# =============================================================================================================        

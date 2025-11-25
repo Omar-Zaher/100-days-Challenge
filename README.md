@@ -22,3 +22,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 14 | Higher Lower | Revision|
 | 15 | Coffee Machine | Dictionaries, Nested Dictionaries, Functions, While Loops, Error Handling, ASCII UI, Resource Management
 | 16 | Enhanced Coffee Machine | OOP, Turtle, pypi, Classes
+| 17 | Quiz Game | Practicing Classes

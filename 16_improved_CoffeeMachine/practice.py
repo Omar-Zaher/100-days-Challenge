@@ -1,12 +1,12 @@
-# import turtle
+import turtle
 
-# t1 = turtle.Turtle()
-# print(t1)
-# t1.shape("turtle")
-# t1.color("Green")
-# my_screen = turtle.Screen()
-# #print(my_screen.canvheight)
-# my_screen.exitonclick()
+t1 = turtle.Turtle()
+print(t1)
+t1.shape("turtle")
+t1.color("Green")
+my_screen = turtle.Screen()
+#print(my_screen.canvheight)
+my_screen.exitonclick()
 
 from prettytable import PrettyTable
 

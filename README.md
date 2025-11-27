@@ -24,3 +24,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 16 | Enhanced Coffee Machine | OOP, Turtle, pypi, Classes
 | 17 | Quiz Game | Practicing Classes
 | 18 | Hirst Painting | Turtle Graphics, Tuples, Importing Modules
+| 19 | Turtle Race | deepen understanding of turtle graphics by exploring event listeners, higher-order functions, state management, and handling multiple instances of an object.

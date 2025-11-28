@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 import time
 from snake import Snake
+from food import Food
 
 snake = Snake()
 screen = Screen()
@@ -19,7 +20,18 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
-snake.move()  # start the loop
+  # start the loop
+food = Food()
+snake.move()
+while True:
+    
+    screen.update()
+    
+    
+    if snake.head().distance(food.f) < 20: 
+        food.move_food()
+        snake.new_segment()
+
 
 screen.mainloop()
 

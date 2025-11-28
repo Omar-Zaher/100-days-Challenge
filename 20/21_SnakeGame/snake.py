@@ -10,6 +10,7 @@ class Snake:
         self.speed = 20
         self.direction = "Right"
         self.create_segments()
+        
 
     def create_segments(self):
         start_x = 0
@@ -60,6 +61,20 @@ class Snake:
     def right(self):
         if self.direction != "Left":
             self.direction = "Right"
+            
+    def new_segment(self):
+        position = self.segments[-1].position()
+        segment = Turtle("square")
+        segment.color("white")
+        segment.penup()
+        segment.goto(position)
+        self.segments.append(segment)
+    
+    def head(self):
+        return self.segments[0]
+         
+    
+        
 
 
 

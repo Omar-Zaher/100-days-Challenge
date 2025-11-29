@@ -1,4 +1,5 @@
 from turtle import Screen, Turtle
+import random
 
 screen = Screen()
 screen.bgcolor("black")
@@ -10,19 +11,30 @@ class Snake:
         self.speed = 20
         self.direction = "Right"
         self.create_segments()
+        self.head = self.segments[0]
         
 
     def create_segments(self):
         start_x = 0
-        for _ in range(3):
-            segment = Turtle("square")
-            segment.color("white")
+        
+        head = Turtle("circle")
+        head.shapesize(stretch_wid=1, stretch_len=1.5)
+        head.color("moccasin")
+        head.penup()
+        head.goto(start_x -10, 0)
+        start_x -= 15
+        self.segments.append(head)
+        
+        for _ in range(2):
+            segment = Turtle("circle")
+            segment.shapesize(stretch_wid=1, stretch_len=1.4)
+            segment.color("wheat4")
             segment.penup()
             segment.goto(start_x, 0)
-            start_x -= 20
+            start_x -= 15
             self.segments.append(segment)
-        screen.update()
-
+        
+        
     def move(self):
         # Move segments from tail to head
         for i in range(len(self.segments)-1, 0, -1):
@@ -43,7 +55,7 @@ class Snake:
 
         head.forward(self.speed)
         screen.update()
-        screen.ontimer(self.move, 120)  
+        #screen.ontimer(self.move, 120)  
 
     # Direction setters
     def up(self):
@@ -62,16 +74,18 @@ class Snake:
         if self.direction != "Left":
             self.direction = "Right"
             
-    def new_segment(self):
+    def new_segment(self, color, shape):
         position = self.segments[-1].position()
-        segment = Turtle("square")
-        segment.color("white")
+        segment = Turtle(shape)
+        segment.color(color)
         segment.penup()
         segment.goto(position)
         self.segments.append(segment)
     
-    def head(self):
-        return self.segments[0]
+    def stop(self):
+        for i in self.segments:
+            i.hideturtle()
+            
          
     
         

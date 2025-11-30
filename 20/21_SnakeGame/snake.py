@@ -86,6 +86,15 @@ class Snake:
         for i in self.segments:
             i.hideturtle()
             
+    def reset(self):
+        
+        for seg in self.segments:
+            seg.hideturtle()
+        self.segments.clear()
+        self.create_segments()
+        self.head = self.segments[0]
+
+            
          
     
         

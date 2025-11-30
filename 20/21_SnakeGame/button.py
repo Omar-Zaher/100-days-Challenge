@@ -3,6 +3,7 @@ from turtle import Turtle
 class Button(Turtle):
     def __init__(self):
         super().__init__()
+        self.hideturtle()
         self.x = -50
         self.y = -50
         self.width = 100

@@ -4,7 +4,6 @@ class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        
         self.update_score()
     
     def update_score(self):

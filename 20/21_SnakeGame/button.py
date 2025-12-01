@@ -1,19 +1,23 @@
 from turtle import Turtle
 
 class Button(Turtle):
-    def __init__(self):
+    buttons = []
+    def __init__(self,x,y,width,height,lable,color="moccasin"):
         super().__init__()
         self.hideturtle()
-        self.x = -50
-        self.y = -50
-        self.width = 100
-        self.height = 30
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.lable = lable
+        self.color = color
+        Button.buttons.append(self)
         
     
-    def draw_button (self, text):
+    def draw_button (self):
         self.hideturtle()
         self.goto(self.x, self.y)
-        self.fillcolor("moccasin")
+        self.fillcolor(self.color)
         self.begin_fill()
         for _ in range (2):
             self.forward(self.width)
@@ -23,18 +27,20 @@ class Button(Turtle):
         self.end_fill()
         self.penup()
         self.goto(self.x + self.width/2, self.y + self.height/4)
-        self.write(text,align= "center", font= ("Arial", 12, "normal") )
+        self.write(self.lable,align= "center", font= ("Arial", 12, "normal") )
         
     
     def check_button_click(self, x, y):
-        half_w = self.width / 1.5
-        half_h = self.height / 1.5
 
-        return (self.x - half_w <= x <= self.x + half_w) and \
-            (self.y - half_h <= y <= self.y + half_h)
+        return (self.x <= x <= self.x + self.width) and \
+            (self.y  <= y <= self.y + self.height)
+            
+            # starting point <= (x) (y) <= ending point
 
-    
-    def reset(self):
-        self.clear()
-        self.hideturtle()
+    @classmethod
+
+    def reset(cls):
+        for button in cls.buttons:
+            button.clear()
+            button.hideturtle()
             

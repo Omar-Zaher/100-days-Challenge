@@ -27,4 +27,5 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 19 | Turtle Race | deepen understanding of turtle graphics by exploring event listeners, higher-order functions, state management, and handling multiple instances of an object.
 | 20 | Snake Game part 1 | Game physics, Turtle graphics, movement logic, screen updates, animation control (tracer / update)
 | 21 | Snake Game part 2 | Wall collision, tail collision, score tracking, food mechanics, color and shape inheritance from food
-| 22 | Snake Game part 3 | Bug fixing, UI improvements, interactive buttons, difficulty levels, game states (welcome, select, play, game over) 
+| 22 | Snake Game part 3 | Bug fixing, UI improvements, interactive buttons, difficulty levels, game states (welcome, select, play, game over)
+| 23 | Pong | Adding Sounds, UI 

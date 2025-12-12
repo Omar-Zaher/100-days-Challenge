@@ -1,8 +1,11 @@
 from turtle import Screen, Turtle
 import time
+from playsound3 import playsound
 from paddles import Paddles
 from scoreboard import ScoreBoard
 from ball import Ball
+from button import Button
+from welcome import Start
 
 # --- Screen Setup ---
 width = 1000
@@ -31,24 +34,44 @@ screen.onkey(p1.down, "Down")
 screen.onkey(p2.up, "w")
 screen.onkey(p2.down, "s")
 
+
+
+
 # ---- Ball --- 
 ball = Ball()
 
 
 
+
+def handle_click(x, y):
+    
+    if start.b.check_button_click(x, y):
+        start.reset()
+        game_loop()
+        
+
+def sound():
+    playsound("bounce.wav", False)
+
 def game_loop():
     
     ball.move()
     if ball.b.ycor() >= height/2-30 or ball.b.ycor() <= -(height/2-30):
+        sound()
         ball.turn_y()
         
-    if (ball.b.xcor() > p1.paddle.xcor() - 10 and ball.b.xcor() < p1.paddle.xcor() + 10) and \
+        
+    if (ball.b.xcor() > p1.paddle.xcor() - 30 and ball.b.xcor() < p1.paddle.xcor() + 30) and \
        (ball.b.ycor() < p1.paddle.ycor() + 50 and ball.b.ycor() > p1.paddle.ycor() - 50):
-        ball.turn_x() 
-    
-    if (ball.b.xcor() > p2.paddle.xcor() - 10 and ball.b.xcor() < p2.paddle.xcor() + 10) and \
-       (ball.b.ycor() < p2.paddle.ycor() + 50 and ball.b.ycor() > p2.paddle.ycor() - 50):
+        sound()
         ball.turn_x()
+        
+    
+    if (ball.b.xcor() > p2.paddle.xcor() - 30 and ball.b.xcor() < p2.paddle.xcor() + 30) and \
+       (ball.b.ycor() < p2.paddle.ycor() + 50 and ball.b.ycor() > p2.paddle.ycor() - 50):
+        sound()
+        ball.turn_x()
+        
 
     if ball.b.xcor() < -(width/1.5):
         score2.add_score()
@@ -61,17 +84,12 @@ def game_loop():
     screen.update() 
     screen.ontimer(game_loop, 20) 
     
-    
-    
-    
-game_loop()
+start = Start()    
 
-
-
-
-
-
-
-
-
+# Re-setup because screen.clear() wipes everything
+  
+start.show_welcome_screen()  
+screen.listen()
+screen.onscreenclick(handle_click)  
+  
 screen.mainloop()

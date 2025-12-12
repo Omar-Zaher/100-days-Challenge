@@ -10,7 +10,7 @@ class Paddles():
         self.paddle.shape("square")
         self.paddle.setheading(90)
         self.paddle.shapesize(stretch_len=5, stretch_wid=1.5)
-        self.paddle.color("white")
+        self.paddle.color("moccasin")
         self.paddle.penup()
         self.paddle.goto(x,y)
         self.paddle.speed("fastest")

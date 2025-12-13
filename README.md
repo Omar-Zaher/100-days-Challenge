@@ -29,3 +29,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 21 | Snake Game part 2 | Wall collision, tail collision, score tracking, food mechanics, color and shape inheritance from food
 | 22 | Snake Game part 3 | Bug fixing, UI improvements, interactive buttons, difficulty levels, game states (welcome, select, play, game over)
 | 23 | Pong | Adding Sounds, UI 
+| 24 | Crossy Turtle | Creative use of turtle, improve logical thinking

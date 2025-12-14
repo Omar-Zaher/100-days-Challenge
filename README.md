@@ -30,3 +30,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 22 | Snake Game part 3 | Bug fixing, UI improvements, interactive buttons, difficulty levels, game states (welcome, select, play, game over)
 | 23 | Pong | Adding Sounds, UI 
 | 24 | Crossy Turtle | Creative use of turtle, improve logical thinking
+| | Mail Merge Project Start | Local Files and Directories

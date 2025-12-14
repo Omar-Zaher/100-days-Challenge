@@ -27,6 +27,7 @@ class ScoreBoard(Turtle):
                 content = data.read().strip()
                 old_high_score = int(content) if content else 0
 
+
         except FileNotFoundError:
             old_high_score = 0
         if self.score > self.high_score and self.score > old_high_score:

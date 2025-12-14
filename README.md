@@ -31,3 +31,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 23 | Pong | Adding Sounds, UI 
 | 24 | Crossy Turtle | Creative use of turtle, improve logical thinking
 | | Mail Merge Project Start | Local Files and Directories
+| 25 | The 50 States | Pandas, CSV files

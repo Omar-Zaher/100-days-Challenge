@@ -34,3 +34,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 25 | The 50 States | Pandas, CSV files
 | 26 | Nato Alphabet | list and dictionary comprehension
 | 27 | Unit Converter | Tkinter, args, kwargs
+| 28 | Pomodoro | Tkinter Canvas, window.after(), Dynamic UI updates

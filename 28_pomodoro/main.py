@@ -38,14 +38,21 @@ for _ in range(0,40):
     
     x1,y1 = (x - r), (y - r)
     x2,y2 = (x + r), (y + r)
-    canvas.create_oval(x1, y1, x2, y2, fill=MAIN_COLOR, outline=GREY, width=1)
+    canvas.create_oval(x1, y1, x2, y2, fill=MAIN_COLOR, outline=ORANGE, width=1)
 
 # Setting up the Canvas
-canvas.create_oval(300,150,700,550,fill=MAIN_COLOR, outline=GREY, width=25 )
+canvas.create_oval(300,150,700,550,fill=MAIN_COLOR, outline=ORANGE, width=25 )
 title_text = canvas.create_text(500,70, text="Pomodoro", font=("Arial", 75, "bold"), fill=WHITE)
 timer_text = canvas.create_text(500, 335, text="00:00", font=("Arial", 50, "bold"), fill=WHITE)
 timer_text2 = canvas.create_text(500, 385, text="FOCUS SESSION", font=("Arial",15,"bold"), fill=WHITE)
-
+progress_arc = canvas.create_arc(
+    300,150,700,550,
+    start=90,         
+    extent=359,          
+    style="arc",
+    outline= GREY,
+    width=26
+)
 
 # ============================================ Functions ================================================
 # ------ Buttons Functions --------
@@ -54,44 +61,56 @@ mode = None
 # Start
 def start():
     global running, mode 
+    canvas.itemconfig(timer_text2, text = "FOCUS SESSION")
     if running:
         window.after_cancel(running)
+    mode = WORK_DURATION
     countdown(WORK_DURATION)
-    mode = "work"
+    
 
 # short break
 def short_break():
-    global running, mode  
+    global running, mode 
+    canvas.itemconfig(timer_text2, text = "BREAK SESSION") 
     if running:
         window.after_cancel(running)
+    mode = BREAK_DURATION
     countdown(BREAK_DURATION)
-    mode = "break"
+    
     
 # Long break
 def long_break():
-    global running, mode  
+    global running, mode 
+    canvas.itemconfig(timer_text2, text = "LONG BREAK") 
     if running:
         window.after_cancel(running)
+    mode = LONG_BREAK_DURATION
     countdown(LONG_BREAK_DURATION)
-    mode = "long break"
+    
 
 
 # ------ Countdown --------
 
 def countdown(count):
     global running, mode 
-    min = int(count // 60)
+    minute = int(count // 60)
     sec = int(count % 60)
-    canvas.itemconfig(timer_text, text = f"{min:02d}:{sec:02d}")
+    extent = 359 * count/mode
+    
+    canvas.itemconfig(timer_text, text = f"{minute:02d}:{sec:02d}")
         
     if count > 0:
         running = window.after(1000, countdown, count - 1)
+        canvas.itemconfig(progress_arc, extent = extent)
         
     elif mode == "work":
+        canvas.itemconfig(progress_arc, extent = 359)
         play_alarm()
         canvas.itemconfig(timer_text, text = "Take a break")
         
+        
     else:
+        canvas.itemconfig(progress_arc, extent = 359)
         play_alarm()
         canvas.itemconfig(timer_text, text = "Its time to lock in!")
 
@@ -162,3 +181,5 @@ canvas.create_window(350, 620, window=short_btn)
 canvas.create_window(650, 620, window=long_btn)     
 
 window.mainloop()
+
+# ======================================================================================================================

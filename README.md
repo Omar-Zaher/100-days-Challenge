@@ -35,3 +35,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 26 | Nato Alphabet | list and dictionary comprehension
 | 27 | Unit Converter | Tkinter, args, kwargs
 | 28 | Pomodoro | Tkinter Canvas, window.after(), Dynamic UI updates
+| 29 | Password Manager | GUI layout, password generation, CSV file handling, clipboard automation, input validation 

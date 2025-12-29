@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 from generator import Generator
 import pyperclip 
+import json
 
 # ---- Color Palete ------
 
@@ -37,8 +38,20 @@ def generate ():
     password.delete(0, tk.END) # clear the password if there is anything
     password.insert(0, text) # inserting the new password
     
+    
+    
+def search ():
+    app1 = app.get().title()
+    try:
+        with open("Passwords.json","r") as file:
+            data = json.load(file)
+            message = messagebox.showinfo(message=f"Your info for {app1}:\n{data[app1]}")
+    except KeyError:
+        message = messagebox.showinfo(message = f"Sorry this app ({app1}) wasn't found")
+        
+    
 def add() :
-    app1 = app.get()
+    app1 = app.get().title()
     email1 = email.get()
     password1 = password.get()
     
@@ -46,11 +59,26 @@ def add() :
         
         pyperclip.copy(password1) # Copy Password to clipboard
         
+        new_data = {
+            app1 : {
+                "Email": email1,
+                "Password": password1
+            }
+        }
+        
         is_ok = messagebox.askokcancel(title="Website", message= f"Do you want to add these inputs\nApp: {app1}\nEmail: {email1}\nPassword: {password1}")
         
         if is_ok:
-            with open("Passwords.csv", "a") as file:
-                file.write(f"{app1} | {email1} | {password1}\n")   
+            try:
+                with open("Passwords.json", "r") as file:
+                    data = json.load(file)  
+                    data.update(new_data)
+            except FileNotFoundError:
+                data = new_data
+            finally:    
+                with open("Passwords.json", "w") as file:
+                    json.dump(data, file, indent = 4)
+                
             # Clear everything after adding
             app.delete(0, tk.END)
             email.delete(0, tk.END)
@@ -67,8 +95,14 @@ app_text = tk.Label(text="App", font= font)
 app_text.place(x=100, y=195)
 
 app = tk.Entry()
-app.place (x=200, y=200, width= 300)
+app.place (x=200, y=200, width= 200)
 app.focus() # focusing on the app Entry so the user can start typing on spot
+
+# ------ Search ---------
+
+pass_button = tk.Button(text="Search", bg= BLUE, foreground=WHITE, command=search)
+pass_button.place (x=420, y=195, width= 80)
+
 
 # -------- Email ----------
 email_text = tk.Label(text="Email", font= font)

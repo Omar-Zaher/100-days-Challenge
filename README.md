@@ -36,4 +36,5 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 27 | Unit Converter | Tkinter, args, kwargs
 | 28 | Pomodoro | Tkinter Canvas, window.after(), Dynamic UI updates
 | 29/30 | Password Manager | GUI layout, password generation, CSV file handling, clipboard automation, input validation, json, exceptions
-| 31 | Flashcard App | Tkinter, pandas, CSV files, state management 
+| 31 | Flashcard App | Tkinter, pandas, CSV files, state management git 
+| 32 | Birthday Wisher | SMTP, email automation, datetime, pandas, CSV files

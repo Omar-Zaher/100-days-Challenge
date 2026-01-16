@@ -39,3 +39,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 31 | Flashcard App | Tkinter, pandas, CSV files, state management git 
 | 32 | Birthday Wisher | SMTP, email automation, datetime, pandas, CSV files
 | 33 | ISS Overhead Notifier | API requests, SMTP email, datetime, location tracking, night detection |
+| 34 | Quiz Game | API, UI, Classes

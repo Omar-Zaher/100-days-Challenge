@@ -40,3 +40,4 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 32 | Birthday Wisher | SMTP, email automation, datetime, pandas, CSV files
 | 33 | ISS Overhead Notifier | API requests, SMTP email, datetime, location tracking, night detection |
 | 34 | Quiz Game | API, UI, Classes
+| 35 | Rain Notifier | API Authentication, Environment variables, Automation

@@ -43,3 +43,5 @@ The goal of this challenge is to build consistency, learn new concepts, and deve
 | 35 | Rain Notifier | API Authentication, Environment variables, Automation
 | 36 | Stock News Alert | API integration (Alpha Vantage, NewsAPI), data comparison, percentage calculation, SMS automation (Twilio), environment variables |
 | 37 | Habit Tracker | API integration (Pixela), CRUD operations, Classes |
+| 38 | Workout Tracker | API integration (Nutritionix, Sheety), natural language input processing, data extraction, Google Sheets automation, environment variables |
+
